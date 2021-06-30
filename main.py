@@ -1,7 +1,8 @@
+from random import randrange
 import pygame as py
 import sys
 from jarvis import *
-from utilitie import *
+from utilities import *
 from pygame.locals import *
 
 
@@ -30,13 +31,13 @@ circle_list = []
 #     i = Circles(x, y, dx, dy, SCREEN, color, rad, stroke)
 #     circle_list.append(i)
 p_rad = 120
-for i in range(9):
-    rad = 10
-    x = SCREEN.get_width()/2
-    y = SCREEN.get_height()/2
+for i in range(20):
+    rad = random.randrange(5, 20)
+    x = random.randrange(rad, SCREEN.get_width()-rad)
+    y = random.randrange(rad, SCREEN.get_height()-rad)
     color = randomColor()
     dx, dy = 2, 2
-    stroke = 0
+    stroke = 3
     i = Circles(x, y, dx, dy, SCREEN, color, rad, stroke, p_rad)
     circle_list.append(i)
 
@@ -63,7 +64,7 @@ if __name__ == '__main__':
         #  circle_rotation
         for i in circle_list:
             i.drawCircle()
-            i.rotateCircle()
+            i.moveCircle()
         py.display.update()
 py.quit()
 sys.exit()

@@ -1,5 +1,5 @@
 import pygame as py
-from utilitie import *
+from utilities import *
 import math
 
 
@@ -29,7 +29,7 @@ class Circles(Shapes):
         self.omega += Circles.c_diff*5
         self.rads = math.radians(self.omega)
         Circles.c_diff += 5
-        Circles.r_diff += .5
+        Circles.r_diff += 1
 
     def drawCircle(self):
         py.draw.circle(self.screen, self.color,
@@ -46,6 +46,6 @@ class Circles(Shapes):
             self.dy = -self.dy
 
     def rotateCircle(self):
-        self.rads += .08
+        self.rads += .07
         self.x = self.screen.get_width()/2 + math.cos(self.rads)*self.p_rad
         self.y = self.screen.get_height()/2+math.sin(self.rads)*self.p_rad
